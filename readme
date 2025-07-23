@@ -1,0 +1,19 @@
+repo/
+├── index.html
+├── images/
+    ├── hero/
+    │   └── hero-bg.jpg (1920x1080, ~200KB)
+    ├── gallery/
+    │   ├── ulivi-1.jpg
+    │   ├── ulivi-2.jpg  
+    │   ├── raccolta-1.jpg
+    │   ├── raccolta-2.jpg
+    │   ├── frangitura-1.jpg
+    │   ├── frangitura-2.jpg
+    │   └── prodotto-1.jpg (8-10 immagini totali)
+    ├── products/
+    │   ├── olio-delicato.jpg
+    │   ├── olio-equilibrato.jpg
+    │   └── olio-robusto.jpg
+    └── icons/
+        └── favicon.ico
