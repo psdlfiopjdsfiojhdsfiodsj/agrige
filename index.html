@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri.Ge - Azienda Agricola Giuseppe Geremia | Olio Extravergine DOP</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Agri.Ge - Azienda Agricola Giuseppe Geremia a Caltabellotta. Olio extravergine DOP Val di Mazara 100% biologico. Tradizione dal 1950.">
+    <meta name="keywords" content="olio extravergine, DOP Val di Mazara, biologico, Caltabellotta, Agri.Ge, Giuseppe Geremia, Sicilia">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Agri.Ge - Azienda Agricola Giuseppe Geremia">
+    <meta property="og:description" content="Olio extravergine DOP Val di Mazara 100% biologico. Tradizione familiare dal 1950 a Caltabellotta.">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="public/icons/favicon.ico" type="image/x-icon">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome 7 - UPDATED -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library - UPDATED -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'agri': {
+                            'gold': '#FFD700',
+                            'yellow': '#FFA500', 
+                            'blue': '#4A90E2',
+                            'green': '#228B22',
+                            'earth': '#8B4513',
+                        },
+                        'sicily': {
+                            50: '#fff7ed',
+                            100: '#ffedd5', 
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+#azienda {
+    margin-top: -1px;
+}
+        /* Video Background Styles */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+        
+        /* REMOVE ALL GREEN GRADIENTS AND SEPARATORS */
+        .hero-separator,
+        .section-separator,
+        [class*="separator"] {
+            display: none !important;
+        }
+        
+        /* SURGICAL FIX - Target the specific problematic section */
+        #azienda {
+            background: none !important;
+            background-color: transparent !important;
+            background-image: none !important;
+        }
+        
+        /* Also ensure the video shows through */
+        #azienda .video-background {
+            z-index: -1 !important;
+        }
+        
+        /* COMPLETE ELIMINATION OF ANY SEPARATORS OR SPACING */
+        section {
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            background: none !important;
+        }
+        
+        /* Hero sections should be seamless */
+        #home, #azienda {
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+        
+        /* Kill any potential separators, banners, dividers */
+        .hero-separator,
+        .section-separator,
+        .divider,
+        .banner,
+        [class*="separator"],
+        [class*="divider"],
+        [class*="banner"],
+        [style*="background-color: gray"],
+        [style*="background-color: grey"],
+        [style*="background: gray"],
+        [style*="background: grey"] {
+            display: none !important;
+            visibility: hidden !important;
+            height: 0 !important;
+            opacity: 0 !important;
+        }
+        
+        /* Remove any pseudo-elements that might create separations */
+        *::before, *::after {
+            background: transparent !important;
+        }
+        
+        /* Clean sections without background image */
+        .patterned-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        /* Video sections with FULL OPACITY */
+        .video-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-section video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+            z-index: -1;
+        }
+        
+        /* Hero Text Effects */
+        .agri-logo {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 800;
+            color: #FFD700;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            letter-spacing: 0.1em;
+            line-height: 0.9;
+        }
+        
+        .company-name {
+            color: #4A90E2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            font-weight: 600;
+        }
+        
+        .floating-text {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* EPIC GALLERY STYLES */
+        .epic-gallery {
+            position: relative;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+        }
+        
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: scale(1.05);
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: brightness(0.9);
+        }
+        
+        .gallery-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            filter: brightness(1);
+            z-index: 3;
+        }
+        
+        .gallery-slide.next {
+            opacity: 0.7;
+            transform: scale(0.95) translateX(50px);
+            filter: brightness(0.95);
+            z-index: 2;
+        }
+        
+        .gallery-slide.prev {
+            opacity: 0.7;
+            transform: scale(0.95) translateX(-50px);
+            filter: brightness(0.95);
+            z-index: 2;
+        }
+        
+        .gallery-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        
+        /* Epic overlay effects */
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 3rem 2rem 2rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .gallery-slide.active .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        /* Gallery Navigation */
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 215, 0, 0.9);
+            backdrop-filter: blur(10px);
+            border: none;
+            color: black;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .gallery-nav:hover {
+            background: #FFD700;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+        }
+        
+        .gallery-nav.prev {
+            left: 2rem;
+        }
+        
+        .gallery-nav.next {
+            right: 2rem;
+        }
+        
+        /* Progress indicators */
+        .gallery-progress {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+        
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .progress-dot.active {
+            background: #FFD700;
+            transform: scale(1.3);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+        
+        /* Autoplay indicator */
+        .autoplay-indicator {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            color: white;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+        
+        .autoplay-circle {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #FFD700;
+            border-radius: 50%;
+            position: relative;
+            margin-left: 0.5rem;
+        }
+        
+        .autoplay-progress {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: #FFD700;
+            animation: rotate 5s linear infinite;
+        }
+        
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Cultivar Cards */
+        .cultivar-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .cultivar-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Parallax Effect */
+        .parallax-element {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        /* Logo animations */
+        .logo-bounce {
+            animation: logoBounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes logoBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Certification badges */
+        .certification-badge {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Hide any scroll indicators or chevron icons that might appear */
+        .fas.fa-chevron-down,
+        .fa-chevron-down,
+        [class*="chevron-down"],
+        .scroll-indicator,
+        .scroll-down {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #FFD700;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFA500;
+        }
+        
+        /* Gallery fullscreen mode */
+        .gallery-fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .gallery-fullscreen.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-900 overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <img src="public/icons/logo-navbar.png" alt="Agri.Ge" class="h-10 w-10 mr-3" 
+                         onerror="this.style.display='none'">
+                    <div>
+                        <span class="text-xl font-serif font-bold text-agri-gold">AGRI.GE</span>
+                        <div class="text-sm text-agri-blue">Giuseppe Geremia</div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-white hover:text-agri-gold transition-colors font-medium">Home</a>
+                        <a href="#azienda" class="text-white hover:text-agri-gold transition-colors font-medium">Azienda</a>
+                        <a href="#cultivar" class="text-white hover:text-agri-gold transition-colors font-medium">Cultivar</a>
+                        <a href="#galleria" class="text-white hover:text-agri-gold transition-colors font-medium">Galleria</a>
+                        <a href="#contatti" class="text-white hover:text-agri-gold transition-colors font-medium">Contatti</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white hover:text-agri-gold" id="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 bg-black bg-opacity-90 backdrop-blur-sm">
+                <a href="#home" class="block px-3 py-2 text-white hover:text-agri-gold">Home</a>
+                <a href="#azienda" class="block px-3 py-2 text-white hover:text-agri-gold">Azienda</a>
+                <a href="#cultivar" class="block px-3 py-2 text-white hover:text-agri-gold">Cultivar</a>
+                <a href="#galleria" class="block px-3 py-2 text-white hover:text-agri-gold">Galleria</a>
+                <a href="#contatti" class="block px-3 py-2 text-white hover:text-agri-gold">Contatti</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section 1 - Main Hero - NO SPACING -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="margin: 0; padding: 0; border: none;">
+        <!-- Video Background -->
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="public/hero/hero1.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+        
+        <!-- Fallback background if video doesn't load - REMOVED GREEN -->
+        <div class="absolute inset-0 bg-black opacity-60" style="z-index: -3;"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-6xl mx-auto">
+            <div class="floating-text mb-8" data-aos="fade-up" data-aos-delay="500">
+                <h1 class="agri-logo mb-4">AGRI.GE</h1>
+                <h2 class="text-2xl md:text-4xl company-name mb-6">
+                    Azienda Agricola Giuseppe Geremia
+                </h2>
+                <p class="text-xl md:text-2xl text-white font-light max-w-3xl mx-auto leading-relaxed" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
+                    Olio Extravergine di Oliva DOP Val di Mazara<br>
+                    <span class="text-agri-gold font-semibold">100% Biologico • Tradizione dal 1950</span>
+                </p>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center mt-12" data-aos="fade-up" data-aos-delay="800">
+                <a href="#cultivar" class="bg-agri-gold hover:bg-agri-yellow text-black px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-2xl">
+                    Scopri le Nostre Cultivar
+                </a>
+                <a href="#contatti" class="border-3 border-agri-gold text-agri-gold hover:bg-agri-gold hover:text-black px-8 py-4 rounded-full font-bold text-lg transition-all">
+                    Contattaci
+                </a>
+            </div>
+        </div>
+        
+        <!-- NO SCROLL INDICATOR ANYWHERE! -->
+    </section>
+
+    <!-- Hero Section 2 - Drone View - ABSOLUTELY NO SPACING -->
+    <section id="azienda" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="margin: 0; padding: 0; border: none;">
+        <!-- Video Background -->
+        <video class="video-background" autoplay muted loop playsinline>
+            <source src="public/hero/hero2.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+        
+        <!-- Fallback background - REMOVED GREEN -->
+        <div class="absolute inset-0 bg-black opacity-50" style="z-index: -3;"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <h2 class="text-5xl md:text-6xl font-serif font-bold text-white mb-6" style="text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);">
+                    L'Oro Verde di<br>
+                    <span class="text-agri-gold">Caltabellotta</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-white mb-8 leading-relaxed" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">
+                    Oltre <span class="text-agri-gold font-bold">5 ettari di uliveto</span> immersi nel cuore della Sicilia, 
+                    dove tradizione e natura si incontrano da generazioni. Dal 1950 la famiglia Geremia 
+                    custodisce questo patrimonio di sapori autentici.
+                </p>
+                
+                <!-- Certifications -->
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <div class="certification-badge rounded-2xl p-4 flex items-center space-x-3">
+                        <img src="https://www.dopvaldimazara.it/wp-content/uploads/2018/08/logo-dop-278x300.png" 
+                             alt="DOP Val di Mazara" class="h-12 w-12 object-contain">
+                        <div>
+                            <div class="font-bold text-agri-blue">DOP</div>
+                            <div class="text-sm text-gray-600">Val di Mazara</div>
+                        </div>
+                    </div>
+                    
+                    <div class="certification-badge rounded-2xl p-4 flex items-center space-x-3">
+                        <img src="https://agriculture.ec.europa.eu/sites/default/files/styles/embed_medium/public/2019-06/eu-organic-logo-600x400_0.png" 
+                             alt="Biologico EU" class="h-12 w-12 object-contain">
+                        <div>
+                            <div class="font-bold text-agri-green">100%</div>
+                            <div class="text-sm text-gray-600">Biologico</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Features -->
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex items-center text-white">
+                        <i class="fas fa-hand-paper text-agri-gold text-2xl mr-3"></i>
+                        <span class="text-lg">Raccolto a Mano</span>
+                    </div>
+                    <div class="flex items-center text-white">
+                        <i class="fas fa-leaf text-agri-green text-2xl mr-3"></i>
+                        <span class="text-lg">100% Biologico</span>
+                    </div>
+                    <div class="flex items-center text-white">
+                        <i class="fas fa-mountain text-agri-blue text-2xl mr-3"></i>
+                        <span class="text-lg">Terroir Siciliano</span>
+                    </div>
+                    <div class="flex items-center text-white">
+                        <i class="fas fa-clock text-agri-gold text-2xl mr-3"></i>
+                        <span class="text-lg">Tradizione dal 1950</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hidden lg:block" data-aos="fade-left">
+                <div class="text-center">
+                    <div class="inline-block p-8 bg-white bg-opacity-10 rounded-3xl backdrop-blur-sm">
+                        <i class="fas fa-seedling text-8xl text-agri-gold mb-4 logo-bounce"></i>
+                        <h3 class="text-2xl font-serif font-bold text-white mb-2">Dal Cuore della Sicilia</h3>
+                        <p class="text-white opacity-90">Tradizione che si tramanda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NO SCROLL INDICATOR HERE -->
+    </section>
+
+    <!-- Process Video Section -->
+    <section id="processo" class="py-20 patterned-section relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-agri-blue mb-4">Il Nostro Processo</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Scopri attraverso i nostri video il processo che trasforma le olive in oro liquido
+                </p>
+            </div>
+            
+            <!-- Video Process Grid -->
+            <div class="max-w-7xl mx-auto space-y-20">
+                
+                <!-- Process Step 1: Landscape -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center" data-aos="fade-right">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl h-80 relative bg-gradient-to-br from-sicily-300 to-sicily-500">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="public/video/video5.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="text-lg font-bold">Paesaggio di Caltabellotta</h4>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-serif font-bold text-agri-blue mb-4">Il Nostro Territorio</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            Immersi nelle colline di Caltabellotta, i nostri ulivi crescono in un ambiente 
+                            incontaminato, dove la brezza mediterranea e il sole siciliano creano le condizioni 
+                            ideali per produrre olive di qualità superiore.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-mountain text-agri-blue text-xl mr-3"></i>
+                                <span>Colline esposte a sud</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-sun text-agri-gold text-xl mr-3"></i>
+                                <span>Clima mediterraneo ideale</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-wind text-agri-green text-xl mr-3"></i>
+                                <span>Ventilazione naturale</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Process Step 2: Lake and Nature -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center" data-aos="fade-left">
+                    <div class="order-2 lg:order-1">
+                        <h3 class="text-3xl font-serif font-bold text-agri-blue mb-4">Ambiente Naturale</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            Il piccolo lago naturale che si trova vicino ai nostri uliveti crea un microclima 
+                            unico, che contribuisce a regolare l'umidità e favorisce la crescita sana delle 
+                            nostre piante centenarie.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-tint text-agri-blue text-xl mr-3"></i>
+                                <span>Microclima regolato</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-leaf text-agri-green text-xl mr-3"></i>
+                                <span>Ecosistema equilibrato</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-tree text-agri-earth text-xl mr-3"></i>
+                                <span>Biodiversità naturale</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 rounded-3xl overflow-hidden shadow-2xl h-80 relative bg-gradient-to-br from-blue-300 to-blue-500">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="public/video/video1.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="text-lg font-bold">Il Laghetto Naturale</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Process Step 3: Hand Harvesting -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center" data-aos="fade-right">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl h-80 relative bg-gradient-to-br from-green-300 to-green-500">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="public/video/video2.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h4 class="text-lg font-bold">Raccolta Manuale</h4>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-serif font-bold text-agri-blue mb-4">La Raccolta Tradizionale</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            Ogni oliva viene raccolta delicatamente a mano, preservando l'integrità del frutto 
+                            e garantendo che solo le olive migliori vengano selezionate per la produzione del 
+                            nostro olio extravergine.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-hand-paper text-agri-gold text-xl mr-3"></i>
+                                <span>Raccolta esclusivamente manuale</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-agri-green text-xl mr-3"></i>
+                                <span>Selezione delle migliori olive</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-heart text-agri-blue text-xl mr-3"></i>
+                                <span>Cura e passione</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Process Step 4: Collection and Transport -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center" data-aos="fade-left">
+                    <div class="order-2 lg:order-1">
+                        <h3 class="text-3xl font-serif font-bold text-agri-blue mb-4">Dalla Raccolta al Frantoio</h3>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            Le olive raccolte vengono immediatamente trasportate al nostro frantoio in contenitori 
+                            areati che preservano la freschezza. Il tempo tra raccolta e molitura è ridotto al 
+                            minimo per garantire la massima qualità.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-agri-blue text-xl mr-3"></i>
+                                <span>Trasporto immediato</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-box text-agri-green text-xl mr-3"></i>
+                                <span>Contenitori areati</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-thermometer-half text-agri-gold text-xl mr-3"></i>
+                                <span>Freschezza preservata</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl h-48 relative bg-gradient-to-br from-yellow-300 to-yellow-500">
+                                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                                    <source src="public/video/video3.mp4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 text-white text-sm">
+                                    <h5 class="font-bold">Contenitori di Raccolta</h5>
+                                </div>
+                            </div>
+                            <div class="rounded-3xl overflow-hidden shadow-2xl h-48 relative bg-gradient-to-br from-orange-300 to-orange-500">
+                                <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                                    <source src="public/video/video4.mp4" type="video/mp4">
+                                </video>
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                <div class="absolute bottom-2 left-2 text-white text-sm">
+                                    <h5 class="font-bold">Arrivo al Frantoio</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultivar Section -->
+    <section id="cultivar" class="py-20 patterned-section relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-agri-blue mb-4">Le Nostre Cultivar</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Tre varietà autoctone siciliane che danno vita a oli dalle caratteristiche uniche e sapori inconfondibili
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Biancolilla -->
+                <div class="cultivar-card rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-yellow-200 to-yellow-400 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-sun text-6xl text-yellow-600 opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-agri-gold text-black px-3 py-1 rounded-full text-sm font-bold">
+                            Delicata
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif font-bold text-agri-blue mb-4">Biancolilla</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Cultivar dal carattere dolce e delicato. Produce un olio dal colore giallo paglierino 
+                            con note fruttate di mandorla dolce e carciofo. Ideale per piatti di pesce e verdure crude.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-palette text-yellow-500 mr-3"></i>
+                                <span class="text-sm text-gray-600">Giallo paglierino</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-nose text-yellow-500 mr-3"></i>
+                                <span class="text-sm text-gray-600">Aroma di mandorla dolce</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-leaf text-yellow-500 mr-3"></i>
+                                <span class="text-sm text-gray-600">Sapore delicato</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nocellara del Belice -->
+                <div class="cultivar-card rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-green-300 to-green-500 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-seedling text-6xl text-green-700 opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-agri-green text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Equilibrata
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif font-bold text-agri-blue mb-4">Nocellara del Belice</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            La più famosa cultivar siciliana. Olio dal sapore equilibrato tra dolce e piccante, 
+                            con intense note di erba fresca e pomodoro verde. Perfetta per tutti gli usi in cucina.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-palette text-green-500 mr-3"></i>
+                                <span class="text-sm text-gray-600">Verde intenso</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-nose text-green-500 mr-3"></i>
+                                <span class="text-sm text-gray-600">Aroma di erba fresca</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-leaf text-green-500 mr-3"></i>
+                                <span class="text-sm text-gray-600">Sapore equilibrato</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cerasuola -->
+                <div class="cultivar-card rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-gradient-to-br from-red-300 to-red-500 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-fire text-6xl text-red-700 opacity-80"></i>
+                        </div>
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            Piccante
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-serif font-bold text-agri-blue mb-4">Cerasuola</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Cultivar dal carattere deciso e piccante. Olio dal sapore intenso con note di carciofo 
+                            e pepe nero. Ideale per carni alla griglia, legumi e per chi ama i sapori forti.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-palette text-red-500 mr-3"></i>
+                                <span class="text-sm text-gray-600">Verde con riflessi dorati</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-nose text-red-500 mr-3"></i>
+                                <span class="text-sm text-gray-600">Aroma di carciofo</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-leaf text-red-500 mr-3"></i>
+                                <span class="text-sm text-gray-600">Sapore piccante</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EPIC GALLERY SECTION -->
+    <section id="galleria" class="epic-gallery min-h-screen relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+        
+        <!-- Header -->
+        <div class="relative z-20 text-center py-20">
+            <h2 class="text-5xl md:text-6xl font-serif font-bold text-white mb-6" data-aos="fade-up">
+                La Nostra <span class="text-agri-gold">Storia</span>
+            </h2>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
+                Dal seme al prodotto finito: un viaggio attraverso la tradizione siciliana
+            </p>
+        </div>
+
+        <!-- Main Gallery Container -->
+        <div class="relative h-[80vh] max-w-7xl mx-auto px-4" data-aos="zoom-in" data-aos-delay="400">
+            
+            <!-- Gallery Slides Container -->
+            <div id="epic-gallery-container" class="relative h-full rounded-3xl overflow-hidden shadow-2xl">
+                <!-- Slides will be dynamically loaded here -->
+            </div>
+
+            <!-- Gallery Navigation -->
+            <button class="gallery-nav prev" id="gallery-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-nav next" id="gallery-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Progress Indicators -->
+            <div class="gallery-progress" id="gallery-dots">
+                <!-- Dots will be dynamically generated -->
+            </div>
+
+            <!-- Autoplay Indicator -->
+            <div class="autoplay-indicator" id="autoplay-status">
+                <span>Autoplay</span>
+                <div class="autoplay-circle">
+                    <div class="autoplay-progress"></div>
+                </div>
+            </div>
+
+            <!-- Gallery Counter -->
+            <div class="absolute top-6 left-6 bg-black bg-opacity-60 backdrop-blur-sm px-4 py-2 rounded-2xl text-white z-10">
+                <span id="current-slide">1</span> / <span id="total-slides">19</span>
+            </div>
+
+            <!-- Fullscreen Button -->
+            <button class="absolute top-6 right-20 bg-black bg-opacity-60 backdrop-blur-sm w-12 h-12 rounded-full text-white hover:bg-agri-gold hover:text-black transition-all z-10" id="fullscreen-btn">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+
+        <!-- Gallery Info Panel -->
+        <div class="relative z-20 max-w-4xl mx-auto px-4 py-16">
+            <div id="gallery-info" class="text-center">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Gallery -->
+    <div class="gallery-fullscreen" id="gallery-fullscreen">
+        <div class="relative h-full">
+            <div id="fullscreen-gallery-container" class="h-full">
+                <!-- Fullscreen slides -->
+            </div>
+            
+            <button class="absolute top-6 right-6 text-white text-3xl hover:text-agri-gold transition-colors z-20" id="close-fullscreen">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <button class="gallery-nav prev" id="fullscreen-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-nav next" id="fullscreen-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contatti" class="py-20 bg-gradient-to-br from-agri-blue to-agri-green">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4">Contattaci</h2>
+                <p class="text-xl text-white opacity-90 max-w-2xl mx-auto">
+                    Vuoi visitare il nostro uliveto? Ordinare i nostri prodotti? Scrivici!
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-3xl shadow-lg p-8">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-6">Agri.Ge</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-agri-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-black"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Azienda Agricola</h4>
+                                    <p class="text-white opacity-90">Contrada Valle dell'Oro<br>92013 Caltabellotta (AG)<br>Sicilia, Italia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-agri-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-phone text-black"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Telefono</h4>
+                                    <p class="text-white opacity-90">+39 333 123 4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-agri-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-envelope text-black"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Email</h4>
+                                    <p class="text-white opacity-90">info@agrige.it</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-agri-gold rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-clock text-black"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-1">Visite in Azienda</h4>
+                                    <p class="text-white opacity-90">Su appuntamento<br>Tutti i giorni 9:00-18:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-3xl shadow-lg p-8">
+                        <h3 class="text-2xl font-serif font-bold text-white mb-6">Invia un Messaggio</h3>
+                        
+                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="nome" class="block text-sm font-semibold text-white mb-2">Nome *</label>
+                                    <input type="text" id="nome" name="nome" required 
+                                           class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:border-transparent transition-all">
+                                </div>
+                                <div>
+                                    <label for="cognome" class="block text-sm font-semibold text-white mb-2">Cognome *</label>
+                                    <input type="text" id="cognome" name="cognome" required 
+                                           class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:border-transparent transition-all">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-white mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:border-transparent transition-all">
+                            </div>
+                            
+                            <div>
+                                <label for="oggetto" class="block text-sm font-semibold text-white mb-2">Oggetto *</label>
+                                <select id="oggetto" name="oggetto" required 
+                                        class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-agri-gold focus:border-transparent transition-all">
+                                    <option value="" class="text-gray-900">Seleziona un oggetto</option>
+                                    <option value="informazioni" class="text-gray-900">Richiesta Informazioni</option>
+                                    <option value="ordine" class="text-gray-900">Effettuare un Ordine</option>
+                                    <option value="visita" class="text-gray-900">Prenotare una Visita</option>
+                                    <option value="altro" class="text-gray-900">Altro</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="messaggio" class="block text-sm font-semibold text-white mb-2">Messaggio *</label>
+                                <textarea id="messaggio" name="messaggio" rows="5" required 
+                                          class="w-full px-4 py-3 bg-white bg-opacity-20 border border-white border-opacity-30 rounded-xl text-white placeholder-white placeholder-opacity-60 focus:outline-none focus:ring-2 focus:ring-agri-gold focus:border-transparent transition-all resize-none"
+                                          placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <input type="checkbox" id="privacy" name="privacy" required 
+                                       class="mt-1 mr-3">
+                                <label for="privacy" class="text-sm text-white opacity-90">
+                                    Accetto il trattamento dei dati personali secondo la Privacy Policy
+                                </label>
+                            </div>
+                            
+                            <button type="submit" 
+                                    class="w-full bg-agri-gold hover:bg-agri-yellow text-black font-bold py-4 px-6 rounded-xl transition-all transform hover:scale-[1.02] shadow-xl">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Invia Messaggio
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <span class="text-2xl font-serif font-bold text-agri-gold">AGRI.GE</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Azienda Agricola Giuseppe Geremia - Dal 1950 produciamo 
+                        olio extravergine di oliva DOP Val di Mazara 100% biologico.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-agri-gold transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-agri-gold transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-agri-gold transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-agri-gold">Prodotti</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-agri-gold transition-colors">Biancolilla</a></li>
+                        <li><a href="#" class="hover:text-agri-gold transition-colors">Nocellara del Belice</a></li>
+                        <li><a href="#" class="hover:text-agri-gold transition-colors">Cerasuola</a></li>
+                        <li><a href="#" class="hover:text-agri-gold transition-colors">Blend Speciali</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-agri-gold">Contatti</h3>
+                    <div class="text-gray-300 space-y-2">
+                        <p>Contrada Valle dell'Oro</p>
+                        <p>92013 Caltabellotta (AG)</p>
+                        <p>Tel: +39 333 123 4567</p>
+                        <p>Email: info@agrige.it</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">
+                    © 2024 Agri.Ge - Azienda Agricola Giuseppe Geremia. Tutti i diritti riservati.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-agri-gold hover:bg-agri-yellow text-black w-12 h-12 rounded-full shadow-xl transition-all transform scale-0 hover:scale-110 z-40">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // EPIC GALLERY IMPLEMENTATION
+        class EpicGallery {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 19;
+                this.autoplayInterval = null;
+                this.autoplayDelay = 5000;
+                this.isPlaying = true;
+                this.isFullscreen = false;
+                
+                this.galleryData = [
+                    {
+                        title: "I Terreni di Caltabellotta",
+                        subtitle: "La Terra Madre",
+                        description: "I nostri terreni collinari di Caltabellotta, ricchi di minerali e baciati dal sole siciliano, sono la culla dei nostri ulivi centenari.",
+                        features: ["Terroir unico", "Colline siciliane", "Suolo minerale"]
+                    },
+                    {
+                        title: "Gli Ulivi Secolari", 
+                        subtitle: "Patrimonio Vivente",
+                        description: "Ulivi che hanno attraversato più di un secolo di storia, custodendo segreti di sapori tramandati da generazione in generazione.",
+                        features: ["Ulivi centenari", "Storia familiare", "Tradizione viva"]
+                    },
+                    {
+                        title: "Il Risveglio Primaverile",
+                        subtitle: "Nuova Vita",
+                        description: "Con l'arrivo della primavera, i nostri ulivi si risvegliano dal riposo invernale, preparandosi a donare i loro frutti preziosi.",
+                        features: ["Ciclo naturale", "Primavera siciliana", "Energie rinnovate"]
+                    },
+                    {
+                        title: "La Fioritura",
+                        subtitle: "Promessa di Abbondanza", 
+                        description: "I piccoli fiori bianchi degli ulivi annunciano la futura raccolta, un momento magico che anticipa la qualità del nostro olio.",
+                        features: ["Fioritura naturale", "Promessa di qualità", "Bellezza rustica"]
+                    },
+                    {
+                        title: "Cura e Dedizione",
+                        subtitle: "Lavoro Quotidiano",
+                        description: "Ogni giorno dedichiamo cure amorevoli ai nostri ulivi, con pratiche biologiche che rispettano l'ambiente e la tradizione.",
+                        features: ["Cura quotidiana", "Metodi biologici", "Rispetto naturale"]
+                    },
+                    {
+                        title: "L'Estate nell'Uliveto",
+                        subtitle: "Maturazione Lenta",
+                        description: "Durante i mesi estivi, le olive crescono lentamente sotto il sole mediterraneo, accumulando gli oli preziosi che caratterizzeranno il nostro prodotto.",
+                        features: ["Maturazione naturale", "Sole mediterraneo", "Qualità crescente"]
+                    },
+                    {
+                        title: "Il Momento della Raccolta",
+                        subtitle: "Tradizione Manuale", 
+                        description: "Tra ottobre e novembre, inizia la raccolta manuale delle olive, nel momento perfetto di maturazione per ottenere il miglior olio.",
+                        features: ["Raccolta a mano", "Timing perfetto", "Tradizione secolare"]
+                    },
+                    {
+                        title: "Olive Fresche",
+                        subtitle: "Qualità Immediata",
+                        description: "Le olive appena raccolte conservano tutta la loro freschezza e le proprietà organolettiche che daranno vita a un olio eccellente.",
+                        features: ["Freschezza garantita", "Proprietà intatte", "Qualità ottimale"]
+                    },
+                    {
+                        title: "Il Trasporto",
+                        subtitle: "Velocità e Cura",
+                        description: "Entro poche ore dalla raccolta, le olive vengono trasportate al frantoio per preservare tutte le loro qualità nutritive e organolettiche.",
+                        features: ["Trasporto rapido", "Qualità preservata", "Processo ottimizzato"]
+                    },
+                    {
+                        title: "Selezione e Lavaggio",
+                        subtitle: "Prima Lavorazione",
+                        description: "Le olive vengono accuratamente selezionate e lavate, rimuovendo foglie e impurità per garantire la purezza del prodotto finale.",
+                        features: ["Selezione accurata", "Lavaggio delicato", "Purezza garantita"]
+                    },
+                    {
+                        title: "La Frangitura Tradizionale",
+                        subtitle: "Molini di Pietra",
+                        description: "Utilizziamo ancora i molini di pietra originali del 1950, che frantumano delicatamente le olive preservando tutti gli aromi naturali.",
+                        features: ["Molini storici", "Frangitura delicata", "Aromi preservati"]
+                    },
+                    {
+                        title: "L'Estrazione",
+                        subtitle: "A Freddo per Eccellenza",
+                        description: "L'estrazione avviene rigorosamente a freddo, sotto i 27°C, per mantenere intatte tutte le proprietà benefiche e il sapore autentico.",
+                        features: ["Estrazione a freddo", "Temperatura controllata", "Proprietà intatte"]
+                    },
+                    {
+                        title: "La Separazione",
+                        subtitle: "Purezza Assoluta", 
+                        description: "Attraverso processi naturali di decantazione e centrifugazione delicata, separiamo l'olio puro dall'acqua di vegetazione.",
+                        features: ["Separazione naturale", "Processi delicati", "Olio purissimo"]
+                    },
+                    {
+                        title: "Il Controllo Qualità",
+                        subtitle: "Standard Elevati",
+                        description: "Ogni lotto viene sottoposto a rigorosi controlli di qualità per garantire i nostri standard di eccellenza DOP.",
+                        features: ["Controlli rigorosi", "Standard DOP", "Eccellenza certificata"]
+                    },
+                    {
+                        title: "La Conservazione",
+                        subtitle: "Protezione del Sapore",
+                        description: "L'olio viene conservato in contenitori di acciaio inox, al riparo da luce e ossigeno, per preservarne tutte le qualità fino all'imbottigliamento.",
+                        features: ["Contenitori inox", "Protezione totale", "Qualità preservata"]
+                    },
+                    {
+                        title: "L'Imbottigliamento",
+                        subtitle: "Protezione e Presentazione",
+                        description: "Ogni bottiglia viene riempita con cura, sigillata e etichettata a mano, pronta per portare l'eccellenza di Agri.Ge sulle vostre tavole.",
+                        features: ["Imbottigliamento curato", "Sigillo di qualità", "Pronto per la tavola"]
+                    },
+                    {
+                        title: "Il Prodotto Finito",
+                        subtitle: "Eccellenza Siciliana",
+                        description: "Ecco il nostro olio extravergine DOP Val di Mazara: oro liquido che racchiude la passione, la tradizione e l'amore per la nostra terra.",
+                        features: ["DOP Val di Mazara", "Tradizione familiare", "Eccellenza certificata"]
+                    },
+                    {
+                        title: "Dalla Terra alla Tavola",
+                        subtitle: "Viaggio Completo",
+                        description: "Il viaggio del nostro olio si completa quando raggiunge le vostre tavole, portando i sapori autentici della Sicilia e della famiglia Geremia.",
+                        features: ["Viaggio completato", "Sapori autentici", "Tradizione siciliana"]
+                    },
+                    {
+                        title: "La Nostra Promessa",
+                        subtitle: "Futuro e Tradizione", 
+                        description: "Continuiamo la tradizione familiare con lo sguardo al futuro, garantendo sempre la massima qualità e il rispetto per l'ambiente.",
+                        features: ["Impegno continuo", "Futuro sostenibile", "Qualità eterna"]
+                    }
+                ];
+                
+                this.init();
+            }
+            
+            init() {
+                this.createSlides();
+                this.createDots();
+                this.setupEventListeners();
+                this.updateInfo();
+                this.startAutoplay();
+            }
+            
+            createSlides() {
+                const container = document.getElementById('epic-gallery-container');
+                const fullscreenContainer = document.getElementById('fullscreen-gallery-container');
+                
+                container.innerHTML = '';
+                fullscreenContainer.innerHTML = '';
+                
+                const gradients = [
+                    'linear-gradient(135deg, #8B7355 0%, #6B5B47 100%)',
+                    'linear-gradient(135deg, #228B22 0%, #006400 100%)',
+                    'linear-gradient(135deg, #FFD700 0%, #FFA500 100%)',
+                    'linear-gradient(135deg, #FFF8DC 0%, #F0E68C 100%)',
+                    'linear-gradient(135deg, #8FBC8F 0%, #556B2F 100%)',
+                    'linear-gradient(135deg, #FF8C00 0%, #FF4500 100%)',
+                    'linear-gradient(135deg, #CD853F 0%, #8B4513 100%)',
+                    'linear-gradient(135deg, #9ACD32 0%, #6B8E23 100%)',
+                    'linear-gradient(135deg, #4682B4 0%, #2F4F4F 100%)',
+                    'linear-gradient(135deg, #ADD8E6 0%, #87CEEB 100%)',
+                    'linear-gradient(135deg, #8B4513 0%, #654321 100%)',
+                    'linear-gradient(135deg, #FFD700 0%, #B8860B 100%)',
+                    'linear-gradient(135deg, #F5F5DC 0%, #D2B48C 100%)',
+                    'linear-gradient(135deg, #4169E1 0%, #0000CD 100%)',
+                    'linear-gradient(135deg, #C0C0C0 0%, #808080 100%)',
+                    'linear-gradient(135deg, #8B0000 0%, #654321 100%)',
+                    'linear-gradient(135deg, #DAA520 0%, #B8860B 100%)',
+                    'linear-gradient(135deg, #32CD32 0%, #228B22 100%)',
+                    'linear-gradient(135deg, #4A90E2 0%, #2E5BBA 100%)'
+                ];
+                
+                for (let i = 0; i < this.totalSlides; i++) {
+                    // Main gallery slide
+                    const slide = document.createElement('div');
+                    slide.className = `gallery-slide ${i === 0 ? 'active' : ''}`;
+                    slide.style.background = gradients[i];
+                    
+                    const img = document.createElement('img');
+                    img.src = `public/gallery/${i + 1}.jpg`;
+                    img.alt = this.galleryData[i].title;
+                    img.onerror = () => {
+                        slide.innerHTML = `
+                            <div class="flex items-center justify-center h-full text-white text-center p-8">
+                                <div>
+                                    <h3 class="text-3xl font-bold mb-4">${this.galleryData[i].title}</h3>
+                                    <p class="text-lg opacity-80">Immagine ${i + 1}</p>
+                                </div>
+                            </div>
+                        `;
+                    };
+                    
+                    slide.appendChild(img);
+                    
+                    const overlay = document.createElement('div');
+                    overlay.className = 'gallery-overlay';
+                    overlay.innerHTML = `
+                        <h3 class="text-2xl font-bold mb-2">${this.galleryData[i].title}</h3>
+                        <p class="text-agri-gold font-semibold mb-2">${this.galleryData[i].subtitle}</p>
+                        <p class="text-sm opacity-90">${this.galleryData[i].description}</p>
+                    `;
+                    slide.appendChild(overlay);
+                    
+                    container.appendChild(slide);
+                    
+                    // Fullscreen slide
+                    const fullscreenSlide = slide.cloneNode(true);
+                    fullscreenContainer.appendChild(fullscreenSlide);
+                }
+                
+                document.getElementById('total-slides').textContent = this.totalSlides;
+            }
+            
+            createDots() {
+                const dotsContainer = document.getElementById('gallery-dots');
+                dotsContainer.innerHTML = '';
+                
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = `progress-dot ${i === 0 ? 'active' : ''}`;
+                    dot.addEventListener('click', () => this.goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
+            }
+            
+            setupEventListeners() {
+                // Navigation buttons
+                document.getElementById('gallery-prev').addEventListener('click', () => this.prevSlide());
+                document.getElementById('gallery-next').addEventListener('click', () => this.nextSlide());
+                
+                // Fullscreen
+                document.getElementById('fullscreen-btn').addEventListener('click', () => this.openFullscreen());
+                document.getElementById('close-fullscreen').addEventListener('click', () => this.closeFullscreen());
+                document.getElementById('fullscreen-prev').addEventListener('click', () => this.prevSlide());
+                document.getElementById('fullscreen-next').addEventListener('click', () => this.nextSlide());
+                
+                // Autoplay toggle
+                document.getElementById('autoplay-status').addEventListener('click', () => this.toggleAutoplay());
+                
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                    if (e.key === 'Escape' && this.isFullscreen) this.closeFullscreen();
+                    if (e.key === ' ') {
+                        e.preventDefault();
+                        this.toggleAutoplay();
+                    }
+                });
+                
+                // Touch support
+                let startX = 0;
+                let endX = 0;
+                
+                const container = document.getElementById('epic-gallery-container');
+                container.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                container.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                });
+                
+                container.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.prevSlide();
+                        }
+                    }
+                });
+            }
+            
+            updateSlides() {
+                const slides = document.querySelectorAll('.gallery-slide');
+                const dots = document.querySelectorAll('.progress-dot');
+                
+                slides.forEach((slide, index) => {
+                    slide.classList.remove('active', 'prev', 'next');
+                    
+                    if (index === this.currentSlide) {
+                        slide.classList.add('active');
+                    } else if (index === this.currentSlide - 1 || (this.currentSlide === 0 && index === this.totalSlides - 1)) {
+                        slide.classList.add('prev');
+                    } else if (index === this.currentSlide + 1 || (this.currentSlide === this.totalSlides - 1 && index === 0)) {
+                        slide.classList.add('next');
+                    }
+                });
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentSlide);
+                });
+                
+                document.getElementById('current-slide').textContent = this.currentSlide + 1;
+                this.updateInfo();
+            }
+            
+            updateInfo() {
+                const infoContainer = document.getElementById('gallery-info');
+                const data = this.galleryData[this.currentSlide];
+                
+                infoContainer.innerHTML = `
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-3xl p-8 text-white">
+                        <div class="inline-flex items-center bg-agri-gold text-black px-4 py-2 rounded-full text-sm font-bold mb-4">
+                            <i class="fas fa-leaf mr-2"></i>
+                            ${data.subtitle}
+                        </div>
+                        <h3 class="text-3xl md:text-4xl font-serif font-bold mb-4">
+                            ${data.title}
+                        </h3>
+                        <p class="text-lg leading-relaxed mb-6 opacity-90">
+                            ${data.description}
+                        </p>
+                        <ul class="flex flex-wrap gap-4 justify-center">
+                            ${data.features.map(feature => `
+                                <li class="flex items-center bg-white bg-opacity-20 px-4 py-2 rounded-full">
+                                    <i class="fas fa-check-circle text-agri-gold mr-2"></i>
+                                    ${feature}
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateSlides();
+                this.restartAutoplay();
+            }
+            
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateSlides();
+                this.restartAutoplay();
+            }
+            
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateSlides();
+                this.restartAutoplay();
+            }
+            
+            startAutoplay() {
+                if (this.isPlaying) {
+                    this.autoplayInterval = setInterval(() => {
+                        this.nextSlide();
+                    }, this.autoplayDelay);
+                }
+            }
+            
+            stopAutoplay() {
+                if (this.autoplayInterval) {
+                    clearInterval(this.autoplayInterval);
+                    this.autoplayInterval = null;
+                }
+            }
+            
+            restartAutoplay() {
+                this.stopAutoplay();
+                this.startAutoplay();
+            }
+            
+            toggleAutoplay() {
+                this.isPlaying = !this.isPlaying;
+                
+                if (this.isPlaying) {
+                    this.startAutoplay();
+                    document.getElementById('autoplay-status').style.opacity = '1';
+                } else {
+                    this.stopAutoplay();
+                    document.getElementById('autoplay-status').style.opacity = '0.5';
+                }
+            }
+            
+            openFullscreen() {
+                this.isFullscreen = true;
+                document.getElementById('gallery-fullscreen').classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Copy current state to fullscreen
+                const fullscreenSlides = document.querySelectorAll('#fullscreen-gallery-container .gallery-slide');
+                fullscreenSlides.forEach((slide, index) => {
+                    slide.classList.remove('active', 'prev', 'next');
+                    if (index === this.currentSlide) {
+                        slide.classList.add('active');
+                    }
+                });
+            }
+            
+            closeFullscreen() {
+                this.isFullscreen = false;
+                document.getElementById('gallery-fullscreen').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Initialize gallery
+        document.addEventListener('DOMContentLoaded', function() {
+            new EpicGallery();
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'transparent';
+                navbar.style.backdropFilter = 'none';
+            }
+            
+            // Back to top button
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('scale-0');
+                backToTop.classList.add('scale-100');
+            } else {
+                backToTop.classList.remove('scale-100');
+                backToTop.classList.add('scale-0');
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button')?.addEventListener('click', function() {
+            document.getElementById('mobile-menu')?.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('mobile-menu')?.classList.add('hidden');
+                }
+            });
+        });
+
+        // Back to top functionality
+        document.getElementById('backToTop')?.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Parallax effect for video backgrounds
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const videos = document.querySelectorAll('.video-background');
+            videos.forEach(video => {
+                const rate = scrolled * -0.5;
+                video.style.transform = `translate3d(0, ${rate}px, 0)`;
+            });
+        });
+
+        // Form submission feedback
+        const contactForm = document.querySelector('#contatti form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                const submitButton = this.querySelector('button[type="submit"]');
+                if (submitButton) {
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Invio in corso...';
+                    submitButton.disabled = true;
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
