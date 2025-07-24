@@ -16,18 +16,17 @@
     
     <!-- Favicon -->
     <link rel="icon" href="public/icons/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="public/icons/favicon.ico" type="image/x-icon">
     
-    <!-- Tailwind CSS CDN -->
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome 7 - UPDATED -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- AOS Animation Library - UPDATED -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     
     <!-- Custom Tailwind Config -->
     <script>
@@ -65,9 +64,7 @@
     </script>
     
     <style>
-#azienda {
-    margin-top: -1px;
-}
+        
         /* Video Background Styles */
         .video-background {
             position: absolute;
@@ -89,85 +86,47 @@
             z-index: -1;
         }
         
-        /* REMOVE ALL GREEN GRADIENTS AND SEPARATORS */
-        .hero-separator,
-        .section-separator,
-        [class*="separator"] {
-            display: none !important;
+        /* Sezioni hero completamente attaccate - NO SCROLL */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0;
+            outline: 0;
+            scroll-behavior: auto !important;
         }
         
-        /* SURGICAL FIX - Target the specific problematic section */
-        #azienda {
-            background: none !important;
-            background-color: transparent !important;
-            background-image: none !important;
+        /* Ensure body has no margins and NO SMOOTH SCROLL */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            scroll-behavior: auto !important;
         }
         
-        /* Also ensure the video shows through */
-        #azienda .video-background {
-            z-index: -1 !important;
-        }
-        
-        /* COMPLETE ELIMINATION OF ANY SEPARATORS OR SPACING */
+        /* Remove any potential spacing between sections */
         section {
             margin: 0 !important;
             padding: 0 !important;
-            border: none !important;
-            background: none !important;
+            border: 0;
+            outline: 0;
+            display: block;
+            scroll-behavior: auto !important;
         }
         
-        /* Hero sections should be seamless */
-        #home, #azienda {
-            margin: 0 !important;
-            padding: 0 !important;
-            border: none !important;
-            box-shadow: none !important;
-            outline: none !important;
+        /* Only non-hero sections get padding */
+        section:not(.hero-section) {
+            padding: 80px 0 !important;
         }
         
-        /* Kill any potential separators, banners, dividers */
-        .hero-separator,
-        .section-separator,
-        .divider,
-        .banner,
-        [class*="separator"],
-        [class*="divider"],
-        [class*="banner"],
-        [style*="background-color: gray"],
-        [style*="background-color: grey"],
-        [style*="background: gray"],
-        [style*="background: grey"] {
-            display: none !important;
-            visibility: hidden !important;
-            height: 0 !important;
-            opacity: 0 !important;
-        }
-        
-        /* Remove any pseudo-elements that might create separations */
-        *::before, *::after {
-            background: transparent !important;
-        }
-        
-        /* Clean sections without background image */
-        .patterned-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-        
-        /* Video sections with FULL OPACITY */
-        .video-section {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .video-section video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 1;
-            z-index: -1;
+        /* Force sections to be tight */
+        #home + #azienda {
+            margin-top: 0 !important;
+            border-top: 0;
         }
         
         /* Hero Text Effects */
@@ -391,21 +350,7 @@
             border: 2px solid rgba(255, 215, 0, 0.3);
         }
         
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Hide any scroll indicators or chevron icons that might appear */
-        .fas.fa-chevron-down,
-        .fa-chevron-down,
-        [class*="chevron-down"],
-        .scroll-indicator,
-        .scroll-down {
-            display: none !important;
-            visibility: hidden !important;
-            opacity: 0 !important;
-        }
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -438,6 +383,94 @@
         .gallery-fullscreen.active {
             display: block;
         }
+
+        /* Fade in up animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Zoom in animation */
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Custom animations for gallery section */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .zoom-in.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .fade-in.animate {
+            opacity: 1;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-400 {
+            transition-delay: 0.4s;
+        }
+        
+        /* Pattern di sfondo per sezioni normali */
+        .patterned-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        /* DISABLE ALL SMOOTH SCROLLING */
+        html {
+            scroll-behavior: auto !important;
+        }
+        
+        * {
+            scroll-behavior: auto !important;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-900 overflow-x-hidden">
@@ -447,11 +480,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <img src="public/icons/logo-navbar.png" alt="Agri.Ge" class="h-10 w-10 mr-3" 
+                    <img src="public/icons/logo.jpg" alt="Agri.Ge Logo" class="h-12 w-12 mr-3 rounded-full object-cover shadow-lg" 
                          onerror="this.style.display='none'">
                     <div>
                         <span class="text-xl font-serif font-bold text-agri-gold">AGRI.GE</span>
-                        <div class="text-sm text-agri-blue">Giuseppe Geremia</div>
+                        <div class="text-sm text-agri-blue">Azienda Agricola Giuseppe Geremia</div>
                     </div>
                 </div>
                 <div class="hidden md:block">
@@ -483,16 +516,13 @@
         </div>
     </nav>
 
-    <!-- Hero Section 1 - Main Hero - NO SPACING -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="margin: 0; padding: 0; border: none;">
+    <!-- Hero Section 1 - Main Hero -->
+    <section id="home" class="hero-section">
         <!-- Video Background -->
         <video class="video-background" autoplay muted loop playsinline>
             <source src="public/hero/hero1.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
-        
-        <!-- Fallback background if video doesn't load - REMOVED GREEN -->
-        <div class="absolute inset-0 bg-black opacity-60" style="z-index: -3;"></div>
         
         <!-- Content -->
         <div class="relative z-10 text-center px-4 max-w-6xl mx-auto">
@@ -516,24 +546,19 @@
                 </a>
             </div>
         </div>
-        
-        <!-- NO SCROLL INDICATOR ANYWHERE! -->
     </section>
 
-    <!-- Hero Section 2 - Drone View - ABSOLUTELY NO SPACING -->
-    <section id="azienda" class="relative min-h-screen flex items-center justify-center overflow-hidden" style="margin: 0; padding: 0; border: none;">
+    <!-- Hero Section 2 - Drone View -->
+    <section id="azienda" class="hero-section">
         <!-- Video Background -->
         <video class="video-background" autoplay muted loop playsinline>
             <source src="public/hero/hero2.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
         
-        <!-- Fallback background - REMOVED GREEN -->
-        <div class="absolute inset-0 bg-black opacity-50" style="z-index: -3;"></div>
-        
         <!-- Content -->
         <div class="relative z-10 max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right">
+            
                 <h2 class="text-5xl md:text-6xl font-serif font-bold text-white mb-6" style="text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);">
                     L'Oro Verde di<br>
                     <span class="text-agri-gold">Caltabellotta</span>
@@ -596,8 +621,6 @@
                 </div>
             </div>
         </div>
-        
-        <!-- NO SCROLL INDICATOR HERE -->
     </section>
 
     <!-- Process Video Section -->
@@ -678,7 +701,7 @@
                         </video>
                         <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                         <div class="absolute bottom-4 left-4 text-white">
-                            <h4 class="text-lg font-bold">Il Laghetto Naturale</h4>
+                            <h4 class="text-lg font-bold">Lago Naturale dell'uliveto</h4>
                         </div>
                     </div>
                 </div>
@@ -750,7 +773,7 @@
                                 </video>
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                                 <div class="absolute bottom-2 left-2 text-white text-sm">
-                                    <h5 class="font-bold">Contenitori di Raccolta</h5>
+                                    <h5 class="font-bold">La raccolta</h5>
                                 </div>
                             </div>
                             <div class="rounded-3xl overflow-hidden shadow-2xl h-48 relative bg-gradient-to-br from-orange-300 to-orange-500">
@@ -783,10 +806,9 @@
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <!-- Biancolilla -->
                 <div class="cultivar-card rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-48 bg-gradient-to-br from-yellow-200 to-yellow-400 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-sun text-6xl text-yellow-600 opacity-80"></i>
-                        </div>
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="public/card_cultivar/biancolilla.jpg" alt="Biancolilla" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute top-4 right-4 bg-agri-gold text-black px-3 py-1 rounded-full text-sm font-bold">
                             Delicata
                         </div>
@@ -816,10 +838,9 @@
                 
                 <!-- Nocellara del Belice -->
                 <div class="cultivar-card rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 bg-gradient-to-br from-green-300 to-green-500 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-seedling text-6xl text-green-700 opacity-80"></i>
-                        </div>
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="public/card_cultivar/nocellara.jpg" alt="Nocellara del Belice" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute top-4 right-4 bg-agri-green text-white px-3 py-1 rounded-full text-sm font-bold">
                             Equilibrata
                         </div>
@@ -849,10 +870,9 @@
                 
                 <!-- Cerasuola -->
                 <div class="cultivar-card rounded-3xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-48 bg-gradient-to-br from-red-300 to-red-500 relative overflow-hidden">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-fire text-6xl text-red-700 opacity-80"></i>
-                        </div>
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="public/card_cultivar/cerasuola.jpg" alt="Cerasuola" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
                             Piccante
                         </div>
@@ -889,16 +909,16 @@
         
         <!-- Header -->
         <div class="relative z-20 text-center py-20">
-            <h2 class="text-5xl md:text-6xl font-serif font-bold text-white mb-6" data-aos="fade-up">
+            <h2 class="text-5xl md:text-6xl font-serif font-bold text-white mb-6 fade-in-up">
                 La Nostra <span class="text-agri-gold">Storia</span>
             </h2>
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto px-4" data-aos="fade-up" data-aos-delay="200">
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto px-4 fade-in-up delay-200">
                 Dal seme al prodotto finito: un viaggio attraverso la tradizione siciliana
             </p>
         </div>
 
         <!-- Main Gallery Container -->
-        <div class="relative h-[80vh] max-w-7xl mx-auto px-4" data-aos="zoom-in" data-aos-delay="400">
+        <div class="relative h-[80vh] max-w-7xl mx-auto px-4 zoom-in delay-400">
             
             <!-- Gallery Slides Container -->
             <div id="epic-gallery-container" class="relative h-full rounded-3xl overflow-hidden shadow-2xl">
@@ -988,7 +1008,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white mb-1">Azienda Agricola</h4>
-                                    <p class="text-white opacity-90">Contrada Valle dell'Oro<br>92013 Caltabellotta (AG)<br>Sicilia, Italia</p>
+                                    <p class="text-white opacity-90">Via Geremia 5<br>92010 Caltabellotta (AG)<br>Sicilia, Italia</p>
                                 </div>
                             </div>
                             
@@ -998,7 +1018,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-white mb-1">Telefono</h4>
-                                    <p class="text-white opacity-90">+39 333 123 4567</p>
+                                    <p class="text-white opacity-90">+39 xxx</p>
                                 </div>
                             </div>
                             
@@ -1030,7 +1050,7 @@
                     <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-3xl shadow-lg p-8">
                         <h3 class="text-2xl font-serif font-bold text-white mb-6">Invia un Messaggio</h3>
                         
-                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                        <form action="https://formspree.io/f/mnnzpeaq" method="POST" class="space-y-6">
                             <div class="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="nome" class="block text-sm font-semibold text-white mb-2">Nome *</label>
@@ -1127,8 +1147,8 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4 text-agri-gold">Contatti</h3>
                     <div class="text-gray-300 space-y-2">
-                        <p>Contrada Valle dell'Oro</p>
-                        <p>92013 Caltabellotta (AG)</p>
+                        <p>Via Geremia 5</p>
+                        <p>92010 Caltabellotta (AG)</p>
                         <p>Tel: +39 333 123 4567</p>
                         <p>Email: info@agrige.it</p>
                     </div>
@@ -1149,16 +1169,27 @@
     </button>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
+        // Modern Intersection Observer for scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with animation classes
+            document.querySelectorAll('.fade-in-up, .zoom-in, .fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
 
         // EPIC GALLERY IMPLEMENTATION
         class EpicGallery {
@@ -1559,12 +1590,16 @@
         // Initialize gallery
         document.addEventListener('DOMContentLoaded', function() {
             new EpicGallery();
+            initScrollAnimations();
         });
 
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
+           
+
             const backToTop = document.getElementById('backToTop');
+            
             
             if (window.scrollY > 50) {
                 navbar.style.background = 'rgba(0, 0, 0, 0.9)';
@@ -1589,14 +1624,15 @@
             document.getElementById('mobile-menu')?.classList.toggle('hidden');
         });
 
-        // Smooth scrolling for navigation links
+        // Navigation links - NO SMOOTH SCROLLING
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
+                    // INSTANT JUMP - NO SMOOTH SCROLL
                     target.scrollIntoView({
-                        behavior: 'smooth',
+                        behavior: 'auto',
                         block: 'start'
                     });
                     document.getElementById('mobile-menu')?.classList.add('hidden');
@@ -1604,11 +1640,11 @@
             });
         });
 
-        // Back to top functionality
+        // Back to top functionality - NO SMOOTH SCROLLING
         document.getElementById('backToTop')?.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth'
+                behavior: 'auto'
             });
         });
 
@@ -1629,6 +1665,7 @@
                 const submitButton = this.querySelector('button[type="submit"]');
                 if (submitButton) {
                     submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Invio in corso...';
+                   
                     submitButton.disabled = true;
                 }
             });
